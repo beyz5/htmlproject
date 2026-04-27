@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Starfy</title>
+        <link rel="icon" href="https://files.catbox.moe/d9qmb3.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <style>
+            * { 
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .body{
+                padding: 0;
+                margin: 0;
+            }
+            .main-head{
+                width: 100%;
+                height: 100px;
+                background-image: url(https://i.pinimg.com/736x/75/bf/0b/75bf0b210a9db62fcfdeab8aff6e8339.jpg);
+                background-color: rgb(30, 30, 141);
+                padding:10px;
+            }
+            .box{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .testheadspace{
+                width: 810px;
+                height: 60px;
+                background-color: #335383;
+            }
+            .testboxleft{
+                width: 60px;
+                height: 50px;
+                background-color: #335383; 
+                float: left;
+            }
+            .textbox{
+                width : 250px;
+                height: 50px;
+                background-color: rgb(41, 45, 82);
+                float: left;
+                border-radius: 30px;
+                border: 2px solid #ccc;
+                padding-left: 10px;
+                box-sizing: border-box;
+                color: aliceblue;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .textboxright{
+                width : 500px;
+                height: 50px;
+                background-color: #335383;
+                float: left;
+            }
+            .textboxline{
+                width: 810px;
+                height: 50px;
+                background-color: #335383;
+
+            }
+            .clear{
+                clear:both;
+            } 
+            .textboxspace{
+                width: 810px;
+                height: 50px;
+                background-color: #335383;
+            }
+            .questionline{
+                width: 810px;
+                height: 300px;
+                background-color: #335383;
+            }
+            .questionleft{
+                width: 60px;
+                height: 300px;
+                background-color: #335383;
+                float: left;
+            }
+            .question{
+                width: 690px;
+                height: 300px;
+                background-color: aliceblue;
+                float: left;
+                padding: 10px;
+                font-size: large;
+                font-family: 'Montserrat', sans-serif;
+                border-radius: 40px;
+                border: 20px solid rgb(41, 45, 82) ;
+            }
+            .submitspace{
+                width: 810px;
+                height: 50px;
+                background-color: #335383;
+            }
+            .submitleft{
+                width: 260px;
+                height: 50px;
+                background-color: #335383;
+                float: left;
+            }
+            .button{
+                background-color: rgb(41, 45, 82); 
+                color: white;
+                display: flex;
+                gap: 5px;
+                font-weight: bold;
+                padding: 15px 40px;
+                border: none;
+                border-radius: 30px;
+                border: 2px solid #ccc;
+                cursor: pointer;
+                width: 250px;
+                align-items: center;
+                font-family: 'Montserrat', sans-serif;
+                justify-content: center;
+            }
+         </style>
+    </head>
+    <body style="background-color: #335383;">
+        <div class="main-head">
+            <div style="text-align: left; width: 120px; height: 80px;">
+                <img src="https://files.catbox.moe/ld3l1v.png" class="box">
+            </div>
+        </div>
+        <hr color="black">
+        <div class="testheadspace"></div>
+        <div class="textboxline">
+           <div class="testboxleft"></div>
+           <div class="textbox">TEST</div>
+           <div class="textboxright"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="textboxspace"></div>
+        <form id="TestForm">
+        <div class="questionline">
+            <div class="questionleft"></div>
+            <div class="question">
+                <p>Q1) I enjoy spending time alone</p>
+                <br>
+                <label><input type="radio" name="Q1" value="0">Strongly Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q1" value="5">Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q1" value="10">Neither Agree or Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q1" value="15">Agree</label>     
+                <br><br>
+                <label><input type="radio" name="Q1" value="20">Strongly Agree</label>
+            </div>
+            <div class="questionleft"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="textboxspace"></div>
+        <div class="questionline">
+            <div class="questionleft"></div>
+            <div class="question">
+                <p>Q2) I'm generally an emotional person</p>
+                <br>
+                <label><input type="radio" name="Q2" value="0">Strongly Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q2" value="5">Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q2" value="10">Neither Agree or Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q2" value="20">Agree</label>
+                <br><br>
+                <label><input type="radio" name="Q2" value="25">Strongly Agree</label>
+            </div>
+            <div class="questionleft"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="textboxspace"></div>
+        <div class="questionline">
+            <div class="questionleft"></div>
+            <div class="question">
+                <p>Q3) I don't actually like crowded places</p>
+                <br>
+                <label><input type="radio" name="Q3" value="0">Strongly Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q3" value="5">Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q3" value="10">Neither Agree or Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q3" value="15">Agree</label>
+                <br><br>
+                <label><input type="radio" name="Q3" value="20">Strongly Agree</label>
+            </div>
+            <div class="questionleft"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="textboxspace"></div>
+        <div class="questionline">
+            <div class="questionleft"></div>
+            <div class="question">
+                <p>Q4) I prefer a healthy lifestyle</p>
+                <br>
+                <label><input type="radio" name="Q4" value="0">Strongly Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q4" value="5">Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q4" value="10">Neither Agree or Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q4" value="15">Agree</label>
+                <br><br>
+                <label><input type="radio" name="Q4" value="20">Strongly Agree</label>
+            </div>
+            <div class="questionleft"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="textboxspace"></div>
+         <div class="questionline">
+            <div class="questionleft"></div>
+            <div class="question">
+                <p>Q5) I can eat even I'm full</p>
+                <br>
+                <label><input type="radio" name="Q5" value="0">Strongly Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q5" value="5">Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q5" value="10">Neither Agree or Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q5" value="15">Agree</label>
+                <br><br>
+                <label><input type="radio" name="Q5" value="20">Strongly Agree</label>
+            </div>
+            <div class="questionleft"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="textboxspace"></div>
+         <div class="questionline">
+            <div class="questionleft"></div>
+            <div class="question">
+                <p>Q6) I like being the center of attention</p>
+                <br>
+                <label><input type="radio" name="Q6" value="0">Strongly Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q6" value="5">Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q6" value="10">Neither Agree or Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q6" value="15">Agree</label>
+                <br><br>
+                <label><input type="radio" name="Q6" value="20">Strongly Agree</label>
+            </div>
+            <div class="questionleft"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="textboxspace"></div>
+         <div class="questionline">
+            <div class="questionleft"></div>
+            <div class="question">
+                <p>Q7) I see myself as an untouchable person</p>
+                <br>
+                <label><input type="radio" name="Q7" value="0">Strongly Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q7" value="5">Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q7" value="10">Neither Agree or Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q7" value="15">Agree</label>
+                <br><br>
+                <label><input type="radio" name="Q7" value="20">Strongly Agree</label>
+            </div>
+            <div class="questionleft"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="textboxspace"></div>
+         <div class="questionline">
+            <div class="questionleft"></div>
+            <div class="question">
+                <p>Q8) I'm a trend hopper</p>
+                <br>
+                <label><input type="radio" name="Q8" value="0">Strongly Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q8" value="5">Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q8" value="10">Neither Agree or Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q8" value="15">Agree</label>
+                <br><br>
+                <label><input type="radio" name="Q8" value="20">Strongly Agree</label>
+            </div>
+            <div class="questionleft"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="textboxspace"></div>
+         <div class="questionline">
+            <div class="questionleft"></div>
+            <div class="question">
+                <p>Q9) I like cold weather</p>
+                <br>
+                <label><input type="radio" name="Q9" value="0">Strongly Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q9" value="5">Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q9" value="10">Neither Agree or Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q9" value="15">Agree</label>
+                <br><br>
+                <label><input type="radio" name="Q9" value="20">Strongly Agree</label>
+            </div>
+            <div class="questionleft"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="textboxspace"></div>
+         <div class="questionline">
+            <div class="questionleft"></div>
+            <div class="question">
+                <p>Q10) I have so many friends and everyone likes me</p>
+                <br>
+                <label><input type="radio" name="Q10" value="0">Strongly Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q10" value="5">Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q10" value="10">Neither Agree or Disagree</label>
+                <br><br>
+                <label><input type="radio" name="Q10" value="15">Agree</label>
+                <br><br>
+                <label><input type="radio" name="Q10" value="20">Strongly Agree</label>
+            </div>
+            <div class="questionleft"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="textboxspace"></div>
+        <div class="submitspace">
+            <div class="submitleft"></div>
+            <button class="button">SUBMIT</button>
+            <div class="submitleft"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="textboxspace"></div>
+        </form>
+        <script>
+            const form = document.getElementById('TestForm');
+            form.addEventListener('submit' , function(cases){
+            cases.preventDefault();
+
+            const formData = new FormData(form)
+            let total = 0;
+            const queTotal = 10;
+
+            for (let i=1; i <= queTotal; i++){
+                const answer = formData.get('Q' +  i);
+
+                if(answer){
+                    total += parseInt(answer);
+                }
+                else{
+                    alert("You didnt answer question " + i);
+                    return;
+                }
+            }
+            localStorage.setItem('totalpoint' , total);
+            window.location.href = 'returnpage.html';
+            });
+
+        </script>
+    </body>
+</html>
