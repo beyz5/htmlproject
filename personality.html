@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Starfy - Your Musical Personality</title>
+    <link rel="icon" href="https://files.catbox.moe/d9qmb3.png">
+    <meta charset="UTF-8">
+    <style>
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #335383;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* --- MAINPAGE İLE BİREBİR AYNI BOYUT (100px) --- */
+        .main-head {
+            width: 100%;
+            height: 100px; 
+            background-image: url('https://i.pinimg.com/736x/75/bf/0b/75bf0b210a9db62fcfdeab8aff6e8339.jpg');
+            background-color: rgb(30, 30, 141);
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+        }
+
+       .logo-container {
+    width: 160px;  
+    height: 160px;   
+    display: flex;
+    align-items: center;
+    }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+        }
+
+        /* YÜKLEME EKRANI TASARIMIN BURAYA (Kendi tasarımını buraya entegre edebilirsin) */
+        #loading-screen { display: flex; flex-direction: column; align-items: center; }
+        .spinner { width: 50px; height: 50px; border: 5px solid rgba(255,255,255,0.3); border-top: 5px solid #1DB954; border-radius: 50%; animation: spin 1s linear infinite; margin-top: 20px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .img-container {
+    text-align: center; /* Resmi ortalar */
+    margin-bottom: 20px;
+}
+
+#personality-img {
+   display: none;
+    background-color: rgb(41, 45, 82);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            width: 90%;
+            max-width: 500px;
+            position: fixed;   /* Sayfaya sabitler */
+            bottom: 200px;      /* Alttan 80px boşluk bırakır */
+            left: 50%;         /* Soldan %50 noktasına çeker */
+            transform: translateX(-50%); /* Tam merkeze hizalamak için kendi genişliğinin yarısı kadar sola kaydırır */
+            z-index: 1000;     /* Diğer her şeyin üstünde görünmesini sağlar */
+        
+
+.theme-rock {
+    background-image: url('https://files.catbox.moe/24mbcl.jpg');
+    background-size: cover center center;
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.theme-pop {
+    background-image: url('https://files.catbox.moe/6uryfu.jpg');
+    background-size: cover center center;
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.4);
+}
+
+.theme-indie {
+    background-image: url('https://files.catbox.moe/tlfwjj.jpg');
+    background-size: cover center center;
+    color: #004d40;
+    box-shadow: 0 0 20px rgba(29, 151, 108, 0.4);
+}
+
+.theme-metal {
+    background-image: url('https://files.catbox.moe/kmwd23.jpg');
+    background-size: cover center center;
+    border: 2px solid #555;
+    box-shadow: 0 0 20px rgba(85, 85, 85, 0.4);
+}
+
+.theme-hyperpop {
+    background-image: url('https://files.catbox.moe/ppp1b2.jpg');
+    background-size: cover center center;
+    color: white;
+    box-shadow: 0 0 20px rgba(255, 106, 0, 0.4);
+}
+
+.theme-jazz {
+    background-image: url('https://files.catbox.moe/tcil5h.jpg');
+    background-size: cover center center;
+    color: #f8f8f8;
+    box-shadow: 0 0 20px rgba(15, 32, 39, 0.4);
+}
+
+.theme-alternative {
+    background-image: url('https://files.catbox.moe/yqfpth.jpg');
+    background-size: cover center center;
+    color: white;
+    box-shadow: 0 0 20px rgba(142, 45, 226, 0.4);
+}
+
+.theme-kpop {
+    background-image: url('https://files.catbox.moe/3is7e1.jpg');
+    background-size: cover center center;
+    color: #333;
+    box-shadow: 0 0 20px rgba(255, 95, 109, 0.4);
+}
+
+.theme-rap {
+    background-image: url('https://files.catbox.moe/0co4cq.jpg');
+    background-size: cover center center;
+    border-left: 10px solid #1DB954; /* Spotify yeşili detay */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.theme-default {
+    background-color: rgb(41, 45, 82); /* Senin eski mavi kutun */
+} 
+}
+
+        /* SONUÇ EKRANI TASARIMI */
+        #result-screen {
+            display: none; /* JS çalışana kadar gizli kalacak */
+            background-color: rgb(41, 45, 82);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            width: 90%;
+            max-width: 500px;
+            position: fixed;   /* Sayfaya sabitler */
+            bottom: 80px;      /* Alttan 80px boşluk bırakır */
+            left: 50%;         /* Soldan %50 noktasına çeker */
+            transform: translateX(-50%); /* Tam merkeze hizalamak için kendi genişliğinin yarısı kadar sola kaydırır */
+            z-index: 1000;     /* Diğer her şeyin üstünde görünmesini sağlar */
+        }
+        
+        .back-btn { margin-top: 30px; background: white; color: #335383; border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; }
+
+     
+
+/* Temel Body Ayarları */
+body {
+    transition: background 0.8s ease; /* Arka plan değişimi yumuşak olsun */
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* --- TÜRE ÖZEL ARKA PLANLAR --- */
+
+/* Rock: Koyu ve isyankar bir hava */
+.bg-rock {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('images/rock-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Pop: Enerjik ve parlak */
+.bg-pop {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+/* Indie: Retro ve huzurlu (Mitski vibe'ı) */
+.bg-indie {
+    background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+}
+
+/* Rap/Hip Hop: Karanlık ve şehirli */
+.bg-rap {
+    background: #0f0f0f;
+    background-image: radial-gradient(#333 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.bg-metal {
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+}
+
+/* Hyperpop: Enerjik ve renkli */
+.bg-hyperpop {
+    background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%);
+}
+
+/* Jazz/Classical: Koyu ve sofistike */
+.bg-jazz {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+}
+
+/* Alternative/Emo: Duygusal ve yoğun */
+.bg-alternative {
+    background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+}   
+
+.bg-kpop {
+    background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
+}   
+
+
+/* Varsayılan Arka Plan */
+.bg-default {
+    background-color: #335383;
+}
+ </style>
+</head>
+<body>
+    <div id="loading-screen">
+        <h2>Analyzing Your Soul...</h2>
+        <div class="spinner"></div> </div>
+
+    <div id="result-screen">
+        <div id="top-genre">The most listened genre is...</div>
+        <h1 id="personality-title">Your Musical Personality</h1>
+        <p id="personality-desc">Your musical personality description will appear here.</p>
+        <a href="dashboard.html" class="back-btn">← Back To Your Account</a>
+    </div>
+     <div class="img-container">
+        <img id="personality-img" src="" alt="Kişilik Görseli">
+    </div>
+
+    <script src="personality.js"></script>
+</body>
+</html>

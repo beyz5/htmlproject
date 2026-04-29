@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Starfy - Account</title>
+    <link rel="icon" href="https://files.catbox.moe/d9qmb3.png">
+    <meta charset="UTF-8">
+    <style>
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #335383;
+            
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* --- MAINPAGE İLE BİREBİR AYNI BOYUT (100px) --- */
+        .main-head {
+            width: 100%;
+            height: 100px; 
+            background-image: url('https://i.pinimg.com/736x/75/bf/0b/75bf0b210a9db62fcfdeab8aff6e8339.jpg');
+            background-color: rgb(30, 30, 141);
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+        }
+
+       .logo-container {
+    width: 160px;  
+    height: 160px;   
+    display: flex;
+    align-items: center;
+    }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+        }
+
+        /* --- PROFİL KISMI --- */
+        #spotify-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Profil resmi 100px'lik header'a yakışacak şekilde büyütüldü */
+        .profile-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .hidden { display: none !important; }
+         
+        /* --- İÇERİK ALANI --- */
+        .center-wrapper {
+            width: 100%;
+            min-height: calc(100vh - 100px); /* 100px header'a göre ayarlandı */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;     
+            padding: 20px;
+        }
+        
+        .menu-container {
+            display: flex; 
+            justify-content: center;
+            gap: 20px; 
+            flex-wrap: wrap; 
+        }
+
+        .tab-btn {
+            background-color: white; 
+            color: #335383; 
+            border: none;
+            padding: 25px 45px; 
+            font-size: 20px; 
+            font-weight: bold;
+            border-radius: 50px; 
+            cursor: pointer;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2); 
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+        }
+
+        
+
+    </style>
+</head>
+<body>
+        
+    <div class="main-head">
+        <div class="logo-container">
+            <img src="https://files.catbox.moe/ld3l1v.png" class="box" alt="Logo">
+        </div>
+        
+        <div id="spotify-profile">
+            <img id="user-avatar" class="profile-icon" src="https://via.placeholder.com/50" alt="PP">
+        </div>
+    </div>
+
+    <hr color="black">
+
+    <div class="center-wrapper">
+        <div class="menu-container">
+            <button id="btn-personality" class="tab-btn">Your Musical Personality</button>
+            <button id="btn-test" class="tab-btn">Which Artist Are You?</button>
+            <button id="btn-stats" class="tab-btn">Spotify Stats</button>
+        </div>
+    </div>
+    
+    <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Starfy - Spotify Stats</title>
+    <link rel="icon" href="https://files.catbox.moe/d9qmb3.png">
+    <meta charset="UTF-8">
+    <style>
+        * { 
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #335383;
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* --- MAINPAGE İLE BİREBİR AYNI BOYUT (100px) --- */
+        .main-head {
+            width: 100%;
+            height: 100px; 
+            background-image: url('https://i.pinimg.com/736x/75/bf/0b/75bf0b210a9db62fcfdeab8aff6e8339.jpg');
+            background-color: rgb(30, 30, 141);
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center; 
+        }
+
+       .logo-container {
+    width: 160px;  
+    height: 160px;   
+    display: flex;
+    align-items: center;
+    }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+        }
+
+        /* --- PROFİL KISMI --- */
+        #spotify-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Profil resmi 100px'lik header'a yakışacak şekilde büyütüldü */
+        .profile-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .hidden { display: none !important; }
+
+        .back-btn {
+            background-color: white; color: rgb(41, 45, 82); border: none; padding: 10px 20px;
+            border-radius: 20px; font-weight: bold; cursor: pointer; margin: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: 0.3s; text-decoration: none; display: inline-block;
+        }
+        .back-btn:hover { transform: scale(1.05); }
+
+        .stats-wrapper { width: 90%; max-width: 900px; margin: 0 auto; text-align: center; padding-bottom: 50px; }
+        .stats-title {
+            color: rgb(250, 250, 252); font-size: 26px; margin-bottom: 30px; border: 2px solid rgb(41, 45, 82);
+            display: inline-block; padding: 15px 50px; background-color: rgba(0,0,0,0.2); border-radius: 12px;
+        }
+        .stats-container { display: flex; justify-content: space-between; gap: 60px; flex-wrap: wrap; }
+            .stats-card {
+    color: white; 
+    font-size: 26px; 
+    background-color: rgb(41, 45, 82); 
+    border-radius: 20px; 
+    padding: 30px;
+    flex: 1; 
+    min-width: 300px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); 
+    text-align: left;
+    position: relative; 
+}
+
+    /* İŞTE KUSURSUZ ÇERÇEVE (HAYALET KUTU) */
+.stats-card::after {
+    content: "";
+    position: absolute;
+    
+    /* TAŞIRMA AYARI BURADAN YAPILIR:
+       Eksi (-) değerler çerçeveyi DÜŞARI taşırır.
+       Artı (+) değerler çerçeveyi İÇERİ taşırır. */
+    top: 10px;    /* 10px içeri sokar (Dışarı için -15px falan yap) */
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    
+    /* Çerçeve resmin */
+    background-image: url('https://files.catbox.moe/tzkmsy.png');
+    background-size: 100% 100%; /* Resmi kutunun boyutuna göre sündürüp çerçeve yapar */
+    background-repeat: no-repeat;
+    
+    pointer-events: none; /* Çerçeve yanlışlıkla yazılara tıklamanı engellemesin diye */
+}
+    
+
+    
+        
+        
+        .stats-card h3 { text-align: center; margin-bottom: 20px; font-size: 22px; border-bottom: 2px solid #d1e0ec; padding-bottom: 10px; }
+        .stats-list { list-style: none; padding: 0; }
+        .stats-item {
+            display: flex; align-items: center; margin-bottom: 15px; background-color: rgb(41, 45, 82); color: white;
+            padding: 10px; border-radius: 12px; transition: 0.2s;
+        }
+        .stats-item:hover { transform: scale(1.03); background-color: rgb(41, 45, 82); }
+        .stats-img { width: 55px; height: 55px; border-radius: 8px; object-fit: cover; margin-right: 15px; }
+        .stats-info { display: flex; flex-direction: column; }
+        .stats-name { font-weight: bold; font-size: 16px; }
+        .stats-sub { font-size: 13px; color: #666; }
+        .rank-number { font-size: 22px; font-weight: bold; color: #ffffff; margin-right: 15px; width: 30px; }
+    </style>
+</head>
+<body>
+    <div class="main-head">
+        <div class="logo-container">
+            <img src="https://files.catbox.moe/ld3l1v.png" class="box" alt="Logo">
+        </div>
+    </div>
+    <hr color="black">
+
+    <a href="dashboard.html" class="back-btn">← Back to Account</a>
+
+    <div class="stats-wrapper">
+        <h2 class="stats-title">Your Music Rhythm</h2>
+        <div class="stats-container">
+            <div class="stats-card">
+                <h3>Artists</h3>
+                <ul id="top-artists-list" class="stats-list"><p style="text-align:center;">Loading...</p></ul>
+            </div>
+            <div class="stats-card">
+                <h3>Hits</h3>
+                <ul id="top-tracks-list" class="stats-list"><p style="text-align:center;">Loading...</p></ul>
+            </div>
+        </div>
+    </div>
+    <script src="stats.js"></script>
+</body>
+</html>
