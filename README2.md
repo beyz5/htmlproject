@@ -7,8 +7,6 @@
 4. [System Architecture & Under the Hood](#-system-architecture--under-the-hood)
 5. [Design & UI/UX Process](#-design--uiux-process)
 6. [Technology Stack](#-technology-stack)
-7. [Installation & Setup](#-installation--setup)
-8. [Future Work](#-future-work)
 
 ---
 
