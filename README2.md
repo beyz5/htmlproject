@@ -27,11 +27,11 @@ Targeting music enthusiasts, the platform goes beyond simple data visualization.
 ---
 
 ## Key Features
-* Secure Spotify Authentication:** Implemented a robust OAuth 2.0 flow to ensure secure, seamless, and read-only access to user data.
-* Short-Term Music Stats:** Real-time data visualization of the user's listening habits, fetching and analyzing their top tracks, artists, and genres from the last month.
-* The "Roast" Generator:** A creative algorithmic feature that analyzes the user's most listened-to genres and tracks to dynamically generate a humorous, customized "roast" of their current music taste.
-* "Which Singer Are You?" Personality Test:** A unique logic engine that processes the user's Spotify data (tempo, genre, top artists) to assign them a specific singer/artist persona that best matches their current vibe.
-* Fully Responsive Design:** Fluid layouts compatible across all desktop, tablet, and mobile devices.
+* **Secure Spotify Authentication:** Implemented a robust OAuth 2.0 flow to ensure secure, seamless, and read-only access to user data.
+* **Short-Term Music Stats:** Real-time data visualization of the user's listening habits, fetching and analyzing their top tracks, artists, and genres from the last month.
+* **The "Roast" Generator:** A creative algorithmic feature that analyzes the user's most listened-to genres and tracks to dynamically generate a humorous, customized "roast" of their current music taste.
+* **"Which Singer Are You?" Personality Test:** A unique logic engine that processes the user's Spotify data (tempo, genre, top artists) to assign them a specific singer/artist persona that best matches their current vibe.
+* **Fully Responsive Design:** Fluid layouts compatible across all desktop, tablet, and mobile devices.
 
 ---
 
