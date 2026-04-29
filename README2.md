@@ -60,7 +60,7 @@ A massive emphasis was placed on the visual aesthetics of the website to ensure 
 
 ---
 
-## ✉️ Contact
+## Contact
 If you have any questions or feedback regarding this project, feel free to reach out:
 * **Beyzanur Kacır** - https://github.com/beyz5
 * **Bilge Arslantaş** - https://github.com/bilge-7
