@@ -16,9 +16,9 @@
             
             overflow-x: hidden;
             font-family: Arial, sans-serif;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z' fill='white' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E") 12 12, auto !important;
         }
         
-        /* --- MAINPAGE İLE BİREBİR AYNI BOYUT (100px) --- */
         .main-head {
             width: 100%;
             height: 100px; 
@@ -30,26 +30,24 @@
             align-items: center; 
         }
 
-       .logo-container {
-    width: 160px;  
-    height: 160px;   
-    display: flex;
-    align-items: center;
-    }
-
         .box {
             width: 100%;
             height: 100%;
             object-fit: contain; 
         }
 
-        /* --- PROFİL KISMI --- */
+       .logo-container {
+            width: 120px;  
+            height: 190px;   
+            display: flex;
+            align-items: center;
+        }
+
         #spotify-profile {
             display: flex;
             align-items: center;
         }
 
-        /* Profil resmi 100px'lik header'a yakışacak şekilde büyütüldü */
         .profile-icon {
             width: 60px;
             height: 60px;
@@ -61,15 +59,17 @@
 
         .hidden { display: none !important; }
          
-        /* --- İÇERİK ALANI --- */
         .center-wrapper {
             width: 100%;
-            min-height: calc(100vh - 100px); /* 100px header'a göre ayarlandı */
+            min-height: calc(100vh - 100px); 
             display: flex;
             flex-direction: column;
             justify-content: center; 
             align-items: center;     
             padding: 20px;
+            background-image: url('https://files.catbox.moe/849ucv.jpg');
+            display: flex;
+            gap: 0;
         }
         
         .menu-container {
@@ -97,12 +97,9 @@
             box-shadow: 0 12px 20px rgba(0,0,0,0.3);
         }
 
-        
-
     </style>
 </head>
-<body>
-        
+<body> 
     <div class="main-head">
         <div class="logo-container">
             <img src="https://files.catbox.moe/ld3l1v.png" class="box" alt="Logo">

@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Starfy</title>
+        <title>Starfy - Result</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="https://files.catbox.moe/d9qmb3.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        
         <style>
             * { 
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
             }
-            .body{
-                padding: 0;
-                margin: 0;
+            body {
+                background-color: #335383;
+                font-family: 'Montserrat', sans-serif;
+                cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z' fill='white' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E") 12 12, auto !important;
+                background: linear-gradient(135deg, #0b1c32 0%, #233e55 50%, #385777 100%);
+                min-height: 100vh;
             }
             .main-head{
                 width: 100%;
@@ -23,173 +30,125 @@
                 background-color: rgb(30, 30, 141);
                 padding:10px;
             }
-            .box{
-                width: 100%;
-                height: 100%;
+
+            .box {
+                width: 120px;
+                height: 100px;
                 object-fit: cover;
             }
-            .space1{
-                width: 100%;
-                height: 60px;
-                background-color: #335383;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-family: 'Montserrat', sans-serif;
+
+            .neon-text {
                 color: black;
                 text-shadow:
                  0 0 10px rgba(255, 255, 255, 0.9), 
                  0 0 20px rgba(255, 255, 255, 0.7), 
                  0 0 30px rgba(255, 255, 255, 0.5);
+                font-weight: bold;
+                text-align: center;
             }
-            .space2{
-                width: 100%;
-                height: 20px;
-                background-color: #335383;
-            }
-            .resultspace{
-                width: 100%;
-                height: 50px;
-                background-color: #335383;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .namespace{
-                width: 100%;
-                height: 50px;
-                background-color: #335383;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .name{
-                width: 300px;
-                height: 50px;
-                background-color: rgb(119, 139, 207);
+
+            .name {
+                background-color: rgb(255, 255, 255);
                 border-radius: 25px;
                 border: 5px solid rgb(41, 45, 82);
                 text-align: center;
                 font-weight: bold;
-                padding: 10px;
-                font-family: 'Montserrat', sans-serif;
+                padding: 10px 30px;
+                display: inline-block;
+                width: 100%;
+                max-width: 300px; 
             }
-             .name2{
-                width: 300px;
-                height: 50px;
+            
+             .name2 {
                 background-color: rgb(41, 45, 82);
                 border-radius: 25px;
                 border: 2px solid white;
                 text-align: center;
                 font-weight: bold;
-                padding: 10px;
+                padding: 10px 30px;
                 color: white;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-family: 'Montserrat', sans-serif;
-            }
-            .footage{
+                display: inline-block;
                 width: 100%;
-                height: 300px;
-                background-color: #335383;
-                justify-content: center;
-                overflow: hidden;
-                text-align: center;
+                max-width: 300px;
             }
-            .footage img{
-                height: 100%;
+
+            .footage img {
+                height: 300px;
+                width: 100%;
+                max-width: 300px;
                 object-fit: cover;
                 border-radius: 50px;
                 border: 5px solid rgb(41, 45, 82);
             }
-            .resulttitle{
-                width: 100%;
-                height: 370px;
-                background-color: #335383;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .resultbox{
-                width: 600px;
-                height: 370px;
-                background-color: rgb(119, 139, 207);
+
+            .resultbox {
+                background-color: rgb(255, 255, 255);
                 border-radius: 40px;
                 border: 15px solid rgb(41, 45, 82);
-                padding: 15px;
+                padding: 25px;
                 font-size: large;
-                font-family: 'Montserrat', sans-serif;
+                width: 100%;
+                max-width: 700px;
+                min-height: 250px; 
+                height: auto;
+                text-align: center;
             }
-            .buttonspace{
-                width: 1000px;
-                height: 30px;
-            }
-            .buttonleft{
-                width:723px;
-                height: 30px;
-                float: left;
-            }
-            .button{
+
+            .button {
                 background-color: rgb(41, 45, 82); 
                 color: white;
-                display: flex;
-                gap: 5px;
                 font-weight: bold;
                 padding: 15px 40px;
-                border: none;
                 border-radius: 30px;
                 border: 2px solid #ccc;
                 cursor: pointer;
                 width: 250px;
-                align-items: center;
-                font-family: 'Montserrat', sans-serif;
-                justify-content: center;
+                transition: 0.3s;
             }
-            .clear{
-                clear:both;
-            } 
+            
+            .button:hover {
+                opacity: 0.9;
+            }
         </style>
     </head>
-    <body style="background-color: #335383;">
-        <div class="main-head">
-            <div style="text-align: left; width: 120px; height: 80px;">
-                <img src="https://files.catbox.moe/ld3l1v.png" class="box">
+    <body>
+        
+        <header class="main-head">
+            <img src="https://files.catbox.moe/ld3l1v.png" class="box" alt="Logo">
+        </header>
+        <hr style="border-color: black; margin: 0; opacity: 1;">
+
+        <div class="container py-4">
+            
+            <div class="d-flex justify-content-center my-4">
+                <div class="name2">RESULT PAGE</div>
             </div>
+
+            <div class="d-flex justify-content-center my-4 footage" id="footagebox">
+            </div>
+
+            <div class="d-flex justify-content-center my-4">
+                <div class="name fs-4" id="celebrityname"></div>
+            </div>
+
+            <div class="d-flex justify-content-center my-4">
+                <div class="resultbox d-flex align-items-center justify-content-center" id="resultbox">
+                </div>
+            </div>
+
+            <div class="neon-text my-5 px-3">
+                Thank you for taking the test. If you want to see more, just go back to the account page.
+            </div>
+
+            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3 pb-5">
+                  <button class="button" onclick="window.location.href='testpage.html'">RETRY</button>
+                  <button class="button" onclick="window.location.href='dashboard.html'">ACCOUNT</button>
+            </div>
+            
         </div>
-        <hr color="black">
-        <div class="space1"></div>
-        <div class="resultspace">
-            <div class="name2">RESULT PAGE</div>
-        </div>
-        <div class="space2"></div>
-        <div class="footage" id="footagebox"></div>
-        <div class="space1"></div>
-        <div class="namespace">
-            <div class="name" id="celebrityname"></div>
-        </div>
-        <div class="space1"></div>
-        <div class="resulttitle">
-            <div class="resultbox" id="resultbox"></div>
-        </div>
-        <div class="space1">Thank you for taking the test. If you want to see more, just go back to the main page.</div>
-        <div class="space1"></div>
-        <div class="buttonspace">
-            <div class="buttonleft"></div>
-            <button class="button" onclick="window.location.href='testpage.html'">RETRY</button>
-            <div class="buttonleft"></div>
-        </div>
-        <div class="clear"></div>
-        <div class="buttonspace">
-            <div class="buttonleft"></div>
-            <button class="button" onclick="window.location.href='dashboard.html'">ACCOUNT</button>
-            <div class="buttonleft"></div>
-        </div>
-        <div class="clear"></div>
-        <div class="space1"></div>
 
         <script>
-            const rawScore =localStorage.getItem('totalpoint');
+            const rawScore = localStorage.getItem('totalpoint');
 
             const footagebox = document.getElementById('footagebox');
             const celebrityname = document.getElementById('celebrityname');
@@ -205,115 +164,96 @@
                 description = "You are a boundary-pushing person who doesn't care about any rules of society, living completely chaotic, hyperactive, and right at the center of internet culture. You only do whatever you want at that moment, focusing entirely on your own fun without caring one bit about what people think of you. You are both very approachable and relaxed enough to joke around with anyone, yet equally unpredictable, wild, and crazy. Your unfiltered thoughts, absurd humor that not everyone gets, and endless energy make you the most striking figure in any environment you enter. You never take life more seriously than necessary, and this reckless, boundary-breaking attitude makes you absolutely unique and peerless.";
                 imgUrl = "https://i.ibb.co/Q3Q7B15C/19a94eaf-4f9e-405b-af41-369398d65686.jpg";
             }
-
             else if(total >= 180){
                 title = "LADY GAGA";
                 description = "You are a true and very grand icon who inspires everyone around you with that endless fire of creativity inside. You recognize no boundaries in the world when it comes to expressing yourself, living a bold and very theatrical life completely far from the ordinary. You love building a very deep, empathetic, and compassionate bond with people, making them feel that you are always by their side under any circumstance. You are always the safest haven and the loudest voice for those who feel they don't belong, the outcasts from society, and those searching for themselves. The stage or social environments are not just places for you; you already live every breathing moment as one massive, spectacular show.";
                 imgUrl = "https://i.ibb.co/0p5454dF/17b09ec8-0a41-4a41-9f32-dc02ba349914.jpg";
             }
-
             else if(total >= 170){
-                title = "ZARA LARRSON";
+                title = "ZARA LARSSON";
                 description = "You are a highly outspoken, brave, and constantly online person who shares whatever crosses your mind with everyone without using the slightest filter. You are never, ever afraid to defend your own truths, get into debates with crowds, and make your voice heard in the loudest way possible. You literally love chatting with people constantly, joking around with them, and being in communication with someone at any given moment. That blunt and clear nature of yours, which harbors no malice inside, makes you the most fun and transparent person in your friend group. You always set the agenda, instantly dominating any digital or physical environment you enter with your endless energy and directness.";
                 imgUrl = "https://i.ibb.co/JR9JJjjM/3d75321a-b797-4ea8-9368-15b86dfd9f30.jpg";
             }
-
             else if(total >= 160){
                 title = "SABRINA CARPENTER";
                 description = "You are an unstoppable social butterfly who is incredibly witty, has confidence through the roof, and constantly radiates a flirty energy around you. When communicating with people, you flawlessly use humor as both a defense shield and an irresistible force of attraction. You always manage to overcome even the most difficult situations with that sweet smile, your relaxed attitude, and your cleverly instant replies. You have a nature relaxed enough to make fun of yourself without hesitation, yet assertive enough to know exactly what you want. You possess that sparkling energy capable of instantly turning any room you enter into your own playground, easily putting people under your spell.";
                 imgUrl = "https://i.ibb.co/xKWQxjwZ/sabrina-carpenter-mob-wife-curls-hero.webp";
             }
-
             else if(total >= 150){
                 title = "OLIVIA RODRIGO";
                 description = "You are a deeply passionate, extroverted, and sincere soul with your heart on your sleeve, who is never afraid to experience emotions to the extreme. When your heart is broken or when you are overjoyed, instead of hiding it, you boldly scream your feelings, allowing everyone to build a deep bond with you. Your youthful energy, endless excitement, and unconditional loyalty to your friends make you the most beloved member of your group. You have a highly social, talkative, and creative nature capable of turning every painful experience you have into a magnificent work of art. Even if you cry alone in your room sometimes, you always know perfectly well how to wipe those tears and return to life at your most energetic and fun state.";
                 imgUrl = "https://i.ibb.co/qLjxCM1T/HFe-Ay-Sb-WMAA-Am5.jpg";
             }
-
             else if(total >= 140){
                 title = "MICHAEL JACKSON";
                 description = "While you possess an enchanting energy that could move the world from the outside, you are extremely fragile, naive, and sensitive in your inner world. You feel an incredibly great excitement in showing your love to people, opening your heart to them, and making surprising gestures. However, behind all those crowds and endless applause, you actually have a shy and lonely soul just waiting to be understood. Your perfectionist nature and vision always keep you at the absolute top, but what you are truly looking for is a pure and non-judgmental sense of belonging. Even though the moments you are strongest in life are under the spotlights, you can only find real peace by protecting that innocent child within you.";
                 imgUrl = "https://i.ibb.co/rK15xxTd/622ee4a5-b7f9-4a80-9f15-0bd6a1f2e17b.jpg";
             }
-
             else if(total >= 130){
                 title = "CONAN GRAY";
                 description = "You are the most trusted best friend of the outcasts and the brokenhearted, having managed to build a massive empire out of your own personal loneliness. Even if you don't want to leave your room much, you chat and integrate with millions of people with that communicative power you possess. You have a very sharp observational skill; you instantly understand people's emotions but sometimes stand one step back to protect your own heart. Those sweet, witty, and sometimes overly dramatic relationship dynamics between you and people make you a highly entertaining person. You are like the most loved and protected child of a massive family who seems to always be hanging out on their own from the outside.";
                 imgUrl = "https://i.ibb.co/tpX644wG/tumblr-d54e939a1fa8cf1ca76baec7ce62253a-2c7301cc-512.jpg" ;
             }
-
             else if(total >= 120){
                 title = "SOMBR";
                 description = "Despite that melancholic and dark atmosphere you carry inside, you are actually a sincere person who is very hungry to establish an emotional connection with people. You never hesitate to share your own feelings in their most transparent form, tightly embracing those who share your troubles from where you are. Even though you have a slightly mysterious and distant vibe, you actually love staying in constant communication with that community that understands you and pouring your heart out to them. People deeply respect that profound soul of yours that distributes healing to others while trying to patch up its own wounds. While you might seem to live an isolated life from the outside, you are never actually alone thanks to those great and emotional bonds you've built.";
                 imgUrl = "https://i.ibb.co/q3x0BFtF/b1efe973-113c-4750-b0e2-95cf5dc551a6.jpg";
             }
-
             else if(total >= 110){
                 title = "BEABADOOBEE";
                 description = "You are a perfect and unique balance between that quiet girl who loves dreaming in her room and that energetic soul firing up the crowds. Although you used to be much shyer and closed off, you broke your shell over time and started enjoying socializing with the outside world. You like sharing every moment and every sweet detail of your life with your friends, instantly giving people that very genuine best friend feeling. You have a flexible nature that can easily adapt to both high-energy environments and quiet, calm solitudes without struggling at all. You are that warm and smiling character who is both very cool and stylish, yet easily approachable by everyone for a heart-to-heart.";
                 imgUrl = "https://i.ibb.co/LdtwTX8C/4a087d6e-6898-4a56-9415-471ad16a7d9e.jpg";
             }
-
             else if(total >= 100){
                 title = "MALCOLM TODD";
                 description = "You have a highly relaxed, unbothered, laid-back, and completely naturally cool attitude towards life. Always staying away from drama, artificiality, and unnecessary showiness, you prefer to simply enjoy the moment and do the things you love. You always manage to project that comforting, one of us feeling to the people around you in a very effortless and natural way. Even when you are just hanging out by yourself in your room, you masterfully manage to build a very sincere and unbreakable connection with people. Your energy is exactly like that most soothing and warm song you play to unwind after a long and exhausting day.";
                 imgUrl = "https://i.ibb.co/pvnJrMT6/fde93572d7dab5390596eed9acd9b876.webp" ;
             }
-
             else if(total >= 90){
                 title = "ARIANA GRANDE";
                 description = "Although you appear completely flawless, sparkling, and unreachable from the outside, you actually have a highly controlling nature that sets very clear boundaries. You are extremely selective about who you let into your life, and you only feel completely comfortable within that tight circle. You overcome the pain or hardships you experience in an incredibly graceful way, standing back up much stronger than before every single time. You are deeply devoted to your loved ones, but you also know exactly where to draw that invisible line between you. You are the sole boss of your own story, and an unbending, iron-clad will lies beneath that perfect stance.";
                 imgUrl = "https://i.ibb.co/XZnJNpFV/b0c58ad9-1a71-41ca-8616-6ff086ae2e7d.jpg";
             }
-
             else if(total >= 80){
                 title = "BILLIE EILISH";
                 description = "No matter how huge a flood of love surrounds you, you still choose to live your life in a tiny circle with the people you trust the most. Even though you sometimes get very overwhelmed by crowds, pressure, and constantly being in the public eye, the sincere bonds you build with people keep you standing. You use the internet and socializing strictly on your own terms, loving to create special moments for people to make them feel valued. You are never afraid to face your own dark thoughts, sharing that fragile and anxious nature of yours with everyone with great honesty. Even though you look very cool from the outside, you are actually just that simple and introverted person who loves feeling safe in their room.";
                 imgUrl = "https://i.ibb.co/F4bLdWWG/4bbc7c81-5b96-4f15-9288-45aafe69860f.jpg";
             }
-
             else if(total >= 70){
                 title = "PINKPANTHERESS";
                 description = "Even though you seem like someone who is a bit shy and likes to stay on the sidelines at first glance, there is a highly fast and fun rhythm in your inner world. You understand internet culture perfectly, catch trends instantly, but you always maintain that unique, slightly nostalgic, and mysterious vibe of yours. You like staying in your own space, but when you get together with people you trust, your amazing, subtly sarcastic sense of humor comes out. People literally love discovering that sharp, smart, and creative mind beneath your sweet and naive stance. Just like a short but addictive song, you are etched into minds by always leaving those around you wanting more.";
                 imgUrl = "https://i.ibb.co/d0C0Gq3N/48fa6cee-fb8d-4faf-bd53-3bebf3cb15f1.jpg";
             }
-
             else if(total >= 60){
                 title = "JUSTIN BIEBER";
                 description = "After living a large part of your life in chaos, you are a matured soul who has finally found peace in your own inner tranquility. While you used to be the center of every crowd, you now prioritize your mental health and inner peace above everything else in the world. You prefer spending time only with a small circle you truly trust, living a simple and calm life with your loved ones. Even though you sometimes build thick walls between yourself and people, you carry an incredibly talented and sensitive heart behind those walls. Rather than the expectations of others, you now have a quiet but very powerful life where you play entirely by your own rules.";
                 imgUrl = "https://i.ibb.co/pj9BKHK6/ac159fcd-6eaa-4696-a09b-ab4e2ecdd408.jpg";
             }
-
             else if(total >= 50){
                 title = "EMINEM";
                 description = "You are like a closed box that has built insurmountable walls against the outside world, highly isolated and focused only on your own work. The opinions people have about you, the attention of others, or the fakeness of social environments don't concern you in the slightest. You really dislike stepping outside that tiny circle you trust, preferring to rule your own kingdom by your own rules. You only let out that massive passion and energy inside you when you are working, immediately returning to your own silence afterwards. Even though people cannot reach you easily, they deeply respect that unshakable stance and your fiercely independent character from afar.";
                 imgUrl = "https://i.ibb.co/mrL0qgtf/rate-my-music-taste-make-assumpitions-about-me-based-on-it-v0-srgiqhrn1gqe1.webp";
             }
-
             else if(total >= 40){
                 title = "HARRY STYLES";
                 description = "Even though you have an overly social nature that seems like everyone's best friend from the outside, you are actually someone who keeps their private life very secret. Connecting with people, being kind to them, and elevating the energy of your environment is practically child's play for you. But in the digital world and your own inner world, you are like a total ghost; you love disappearing and answering to no one. Although you smile and act warm to everyone, you only fully open the doors of your heart to a very elite and special group. People adore this free and charismatic soul of yours that is both everywhere and nowhere to be found.";
                 imgUrl = "https://i.ibb.co/j9s1mw3j/f5fda510-efe5-4392-95b4-81fde53cbbf5.jpg";
             }
-
             else if(total >= 30){
                 title = "JEFF BUCKLEY";
                 description = "Staying completely away from the fakeness of the popular world, you have a very deep soul in love with art, melancholy, and real emotions. What matters to you is not the attention of the crowds, but being able to truly, deeply touch a single person's heart. You communicate with people on a very intense, almost spiritual level, capable of clearly feeling even their most hidden pains. Feeding off your own solitude, you are a rare, very special, and misunderstood person who can hear that loud scream within the silence. Instead of chasing after ostentation, you prefer to live life with all its nakedness and sorrow, simply feeling the moment.";
                 imgUrl = "https://i.ibb.co/tTqV2g9b/af970e6f-5dba-47d0-a942-894c17d0fa48.jpg";
             }
-
             else if(total >= 20){
                 title = "TAME IMPALA";
                 description = "You are an incredibly detail-oriented and quiet perfectionist genius who loves to get lost in the depths of your own mind. You reveal your true magic and potential when you are alone with your thoughts in your own space, rather than in crowds. Even though you appear quite calm and isolated from the outside, you possess an imagination rich enough to build entirely different galaxies in your inner world. You like handling everything on your own, preferring to keep all the control in your own hands rather than relying on others. People simply look with admiration at your mysterious aura and that massive, enchanting universe you create all by yourself.";
                 imgUrl = "https://i.ibb.co/Kcvd6ZvM/Tame-mpala.webp";
             }
-
             else if(total >= 10){
                 title = "LANA DEL REY";
                 description = "You are someone who lives beyond time, nostalgic, romantic, and always carrying a melancholic poem in your heart. You love retreating into your own inner world, finding it safer to experience your emotions behind that enchanting and mysterious veil. Rather than noisy and chaotic environments, you chase after moments that possess calmness, aesthetics, and an inner depth. Your mood and energy are constantly changing; one day you can be the warmest person in the world, and the next day you might completely disappear. The people around you are irresistibly drawn to this never-fully-unsolvable vintage soul of yours and your sorrowful beauty.";
                 imgUrl = "https://i.ibb.co/hFqybbQj/1689-jpeg-format1by1.jpg";
             }
-
             else{
                 title = "MITSKI";
                 description = "  You are a mysterious person who lives in your inner world rather than the outside world, valuing your privacy above everything else. You experience such intense and complex emotions inside that opening them up to the outside can often be scary for you. You draw clear boundary lines between yourself and people, never allowing your personal space to be violated no matter how much you care. You have an introverted nature, choosing to express what's in your heart only through trusted ways, in a highly coded and naive manner. You are a very special book trying to quietly exist in a noisy world, opening up only to those who truly deserve it.";
@@ -324,5 +264,6 @@
             celebrityname.innerHTML = title;
             resultbox.innerHTML = description;
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

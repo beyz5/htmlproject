@@ -4,6 +4,9 @@
     <title>Starfy - Your Musical Personality</title>
     <link rel="icon" href="https://files.catbox.moe/d9qmb3.png">
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         * { 
             margin: 0;
@@ -11,14 +14,20 @@
             box-sizing: border-box;
         }
         
-        body {
+    body {
             background-color: #335383;
             overflow-x: hidden;
             font-family: Arial, sans-serif;
+            scrollbar-width: thin;
+            scrollbar-color: white rgb(41, 45, 82) ;
+            font-family: 'Montserrat', sans-serif;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z' fill='white' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E") 12 12, auto !important;
+            transition: background 0.8s ease;
+            margin: 0;
+            min-height: 100vh;
         }
-        
-        /* --- MAINPAGE İLE BİREBİR AYNI BOYUT (100px) --- */
-        .main-head {
+    
+    .main-head {
             width: 100%;
             height: 100px; 
             background-image: url('https://i.pinimg.com/736x/75/bf/0b/75bf0b210a9db62fcfdeab8aff6e8339.jpg');
@@ -27,208 +36,239 @@
             display: flex;
             justify-content: space-between;
             align-items: center; 
-        }
+    }
 
-       .logo-container {
-    width: 160px;  
-    height: 160px;   
+    .logo-container {
+    width: 120px;  
+    height: 190px;   
     display: flex;
     align-items: center;
     }
 
-        .box {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; 
-        }
+    .box {
+        width: 120px;
+        height: 100px;
+        object-fit: cover;
+    }
 
-        /* YÜKLEME EKRANI TASARIMIN BURAYA (Kendi tasarımını buraya entegre edebilirsin) */
-        #loading-screen { display: flex; flex-direction: column; align-items: center; }
-        .spinner { width: 50px; height: 50px; border: 5px solid rgba(255,255,255,0.3); border-top: 5px solid #1DB954; border-radius: 50%; animation: spin 1s linear infinite; margin-top: 20px; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .img-container {
-    text-align: center; /* Resmi ortalar */
-    margin-bottom: 20px;
-}
+    .box2 {
+        width: 100px;
+        height: 80px;
+        object-fit: cover;
+    }
 
-#personality-img {
-   display: none;
-    background-color: rgb(41, 45, 82);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            width: 90%;
-            max-width: 500px;
-            position: fixed;   /* Sayfaya sabitler */
-            bottom: 200px;      /* Alttan 80px boşluk bırakır */
-            left: 50%;         /* Soldan %50 noktasına çeker */
-            transform: translateX(-50%); /* Tam merkeze hizalamak için kendi genişliğinin yarısı kadar sola kaydırır */
-            z-index: 1000;     /* Diğer her şeyin üstünde görünmesini sağlar */
-        
+
+    #loading-screen { display: flex; flex-direction: column; align-items: center; }
+    .spinner { width: 50px; height: 50px; border: 5px solid rgba(255,255,255,0.3); border-top: 5px solid #1DB954; border-radius: 50%; animation: spin 1s linear infinite; margin-top: 20px; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+ 
+    .img-container {
+        text-align: center;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    #personality-img {
+        display: block; 
+        margin: 0 auto;
+        width: 100%;
+        max-width: 300px; 
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
 
 .theme-rock {
-    background-image: url('https://files.catbox.moe/24mbcl.jpg');
     background-size: cover center center;
-    border: 2px solid #ff0000;
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+    color: #ffffff;
 }
 
 .theme-pop {
-    background-image: url('https://files.catbox.moe/6uryfu.jpg');
     background-size: cover center center;
     box-shadow: 0 0 20px rgba(255, 0, 128, 0.4);
+    color: #ffffff;
 }
 
 .theme-indie {
-    background-image: url('https://files.catbox.moe/tlfwjj.jpg');
     background-size: cover center center;
-    color: #004d40;
+    color: #ffffff;
     box-shadow: 0 0 20px rgba(29, 151, 108, 0.4);
 }
 
 .theme-metal {
-    background-image: url('https://files.catbox.moe/kmwd23.jpg');
     background-size: cover center center;
     border: 2px solid #555;
     box-shadow: 0 0 20px rgba(85, 85, 85, 0.4);
+    color: #ffffff;
 }
 
 .theme-hyperpop {
-    background-image: url('https://files.catbox.moe/ppp1b2.jpg');
     background-size: cover center center;
-    color: white;
     box-shadow: 0 0 20px rgba(255, 106, 0, 0.4);
+    color: #ffffff;
 }
 
 .theme-jazz {
-    background-image: url('https://files.catbox.moe/tcil5h.jpg');
     background-size: cover center center;
-    color: #f8f8f8;
     box-shadow: 0 0 20px rgba(15, 32, 39, 0.4);
+    color: #ffffff;
 }
 
 .theme-alternative {
-    background-image: url('https://files.catbox.moe/yqfpth.jpg');
     background-size: cover center center;
-    color: white;
+    color: #ffffff;
     box-shadow: 0 0 20px rgba(142, 45, 226, 0.4);
 }
 
 .theme-kpop {
-    background-image: url('https://files.catbox.moe/3is7e1.jpg');
     background-size: cover center center;
-    color: #333;
+    color: #ffffff;
     box-shadow: 0 0 20px rgba(255, 95, 109, 0.4);
 }
 
 .theme-rap {
-    background-image: url('https://files.catbox.moe/0co4cq.jpg');
     background-size: cover center center;
-    border-left: 10px solid #1DB954; /* Spotify yeşili detay */
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    color: #ffffff;
 }
 
 .theme-default {
-    background-color: rgb(41, 45, 82); /* Senin eski mavi kutun */
+    background-color: rgb(41, 45, 82); 
 } 
+
+#result-screen {
+    display: none;
+    background-color: rgb(41, 45, 82);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    width: 90%;
+    max-width: 500px;
+    position: absolute; 
+    left: 50%;     
+    transform: translateX(-50%); 
+    z-index: 1000;    
+    max-height: 85vh;    
+    overflow-y: auto;
+    margin-bottom: 50px;
+    top: 50px;     
+    left: 50%;
 }
 
-        /* SONUÇ EKRANI TASARIMI */
-        #result-screen {
-            display: none; /* JS çalışana kadar gizli kalacak */
-            background-color: rgb(41, 45, 82);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            width: 90%;
-            max-width: 500px;
-            position: fixed;   /* Sayfaya sabitler */
-            bottom: 80px;      /* Alttan 80px boşluk bırakır */
-            left: 50%;         /* Soldan %50 noktasına çeker */
-            transform: translateX(-50%); /* Tam merkeze hizalamak için kendi genişliğinin yarısı kadar sola kaydırır */
-            z-index: 1000;     /* Diğer her şeyin üstünde görünmesini sağlar */
-        }
-        
-        .back-btn { margin-top: 30px; background: white; color: #335383; border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; }
-
-     
-
-/* Temel Body Ayarları */
-body {
-    transition: background 0.8s ease; /* Arka plan değişimi yumuşak olsun */
-    margin: 0;
-    min-height: 100vh;
+.resultbox{
+    display: block; 
+    background-color: rgba(111, 118, 188, 0.8); 
+    padding: 15px;
+    border-radius: 15px;
+    width: 100%; 
+    margin: 15px 0; 
+    color: white;
+    text-align: center;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2); 
+    min-height: 230px;
+    font-size: large;
+    text-align: left;
 }
 
-/* --- TÜRE ÖZEL ARKA PLANLAR --- */
+.back-btn { 
+    margin-top: 30px; 
+    background: white; 
+    color: #335383; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 20px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    text-decoration: none; 
+    display: block; 
+    width: fit-content;       
+    margin: 30px auto 0 auto;
+}
 
-/* Rock: Koyu ve isyankar bir hava */
 .bg-rock {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('images/rock-bg.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: linear-gradient(135deg, #8b0000 0%, #3d0000 100%);
 }
 
-/* Pop: Enerjik ve parlak */
 .bg-pop {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #710d86 0%, #5d466a 100%);
 }
 
-/* Indie: Retro ve huzurlu (Mitski vibe'ı) */
 .bg-indie {
-    background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+    background: linear-gradient(135deg, #faf378 0%, #ffcc00 100%);
 }
 
-/* Rap/Hip Hop: Karanlık ve şehirli */
 .bg-rap {
-    background: #0f0f0f;
-    background-image: radial-gradient(#333 1px, transparent 1px);
-    background-size: 20px 20px;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
 }
 
 .bg-metal {
-    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    background: linear-gradient(135deg, #000000 0%, #434343 100%);
 }
 
-/* Hyperpop: Enerjik ve renkli */
 .bg-hyperpop {
-    background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%);
+    background: linear-gradient(135deg, #ec008c 0%, #673ab7 100%);
 }
 
-/* Jazz/Classical: Koyu ve sofistike */
 .bg-jazz {
-    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    background: linear-gradient(135deg, #021b79 0%, #0575e6 100%);
 }
 
-/* Alternative/Emo: Duygusal ve yoğun */
 .bg-alternative {
-    background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+    background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
 }   
 
 .bg-kpop {
-    background: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
+    background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%);
 }   
 
-
-/* Varsayılan Arka Plan */
 .bg-default {
-    background-color: #335383;
+    background: linear-gradient(135deg, #411b1b 0%, #4b3539 100%);
 }
+
+.loading{
+    width: 100%;
+    height: 250px;
+}
+
+#top-genre, 
+#personality-title,#personality-desc {
+    text-align: center;
+}
+
  </style>
 </head>
 <body>
     <div id="loading-screen">
-        <h2>Analyzing Your Soul...</h2>
-        <div class="spinner"></div> </div>
-
-    <div id="result-screen">
-        <div id="top-genre">The most listened genre is...</div>
-        <h1 id="personality-title">Your Musical Personality</h1>
-        <p id="personality-desc">Your musical personality description will appear here.</p>
-        <a href="dashboard.html" class="back-btn">← Back To Your Account</a>
+        <div class="main-head">
+            <div style="text-align: left; width: 120px; height: 80px;">
+                <img src="https://files.catbox.moe/ld3l1v.png" class="box">
+            </div>
+        </div>
+        <div class="loading"></div>
+          <h2 style="color: white;">Analyzing Your Soul...</h2>
+          <div class="spinner"></div>
     </div>
-     <div class="img-container">
-        <img id="personality-img" src="" alt="Kişilik Görseli">
+
+    <div id="result-screen" style="display:none;"> 
+        <div class="img-container">
+            <div style="text-align: left; width: 120px; height: 80px;">
+                <img src="https://files.catbox.moe/ld3l1v.png" class="box2">
+            </div>
+            <img id="personality-img" src="" alt="Kişilik Görseli">
+        </div>
+
+        <div id="top-genre" style="color: white;">The most listened genre is...</div>
+        <br>
+        <h1 id="personality-title" style="color: white;">Your Musical Personality</h1>
+        <br>
+        <p id="personality-desc" style="color: white;">Your musical personality description will appear here.</p>
+        <br>
+
+        <p style="color: white;"><b>ROAST TIME:</b></p>
+
+        <div class="resultbox">blablabla</div>
+        
+        <a href="dashboard.html" class="back-btn">← Back To Your Account</a>
     </div>
 
     <script src="personality.js"></script>

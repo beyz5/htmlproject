@@ -7,7 +7,6 @@ if (!accessToken) {
 }
 
 function fetchSpotifyStats(token) {
-    // 1. GERÇEK SPOTIFY ARTISTS LİNKİ (Son 4 Hafta, Top 5)
     fetch('https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=5', {
         headers: { 'Authorization': 'Bearer ' + token }
     })
@@ -34,7 +33,6 @@ function fetchSpotifyStats(token) {
     })
     .catch(err => console.error("Artist error:", err));
 
-    // 2. GERÇEK SPOTIFY TRACKS LİNKİ (Son 4 Hafta, Top 5)
     fetch('https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=5', {
         headers: { 'Authorization': 'Bearer ' + token }
     })

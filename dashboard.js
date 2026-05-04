@@ -5,7 +5,6 @@ const urlParams = new URLSearchParams(window.location.search);
 let code = urlParams.get('code');
 let storedToken = localStorage.getItem('spotify_access_token');
 
-// 1. DURUM: Yeni giriş yapıldıysa (URL'de kod varsa)
 if (code) {
     window.history.pushState("", document.title, window.location.pathname);
     let codeVerifier = localStorage.getItem('code_verifier');
@@ -18,7 +17,6 @@ if (code) {
       code_verifier: codeVerifier
     });
 
-    // Orijinal Spotify Token Linki
     fetch('https://accounts.spotify.com/api/token', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -35,17 +33,16 @@ if (code) {
     .catch(error => console.error("Token error:", error));
 
 } 
-// 2. DURUM: Stats sayfasından geri dönüldüyse (Hafızada token varsa)
+
 else if (storedToken) {
-    fetchUserData(storedToken); // Hafızadaki anahtarla resmi geri getir!
+    fetchUserData(storedToken); 
 } 
-// İkisi de yoksa ana sayfaya şutla
+
 else {
     window.location.href = 'mainpage.html';
 }
 
 function fetchUserData(accessToken) {
-    // Orijinal Spotify Kullanıcı Linki
     fetch('https://api.spotify.com/v1/me', {
         headers: { 'Authorization': 'Bearer ' + accessToken }
     })
@@ -68,12 +65,10 @@ if(btnStats){
     });
 }
 
-// TEST BUTONUNA TIKLANINCA YÖNLENDİRME
 const btnTest = document.getElementById('btn-test');
 
 if (btnTest) {
     btnTest.addEventListener('click', () => {
-        // 'artist-test.html' kısmını senin dosya ismin neyse onunla değiştir
         window.location.href = 'testpage.html'; 
     });
 }

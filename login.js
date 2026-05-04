@@ -1,6 +1,5 @@
 const clientId = 'e4667ed0b869458ca49bdb6f5179fff1'; 
 const redirectUri = 'http://127.0.0.1:5500/dashboard.html'; 
-// İstatistikleri okuyabilmek için user-top-read izni eklendi:
 const scopes = 'user-read-private user-read-email user-top-read'; 
 
 const generateRandomString = (length) => {
@@ -34,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 window.localStorage.setItem('code_verifier', codeVerifier);
 
-                // DİKKAT: Gerçek Spotify Yetkilendirme Linki
                 const authUrl = new URL("https://accounts.spotify.com/authorize");
                 const params = {
                   response_type: 'code',
